@@ -13,7 +13,8 @@ class Transaction(models.Model):
     transaction_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     item_id = models.ForeignKey('Item', on_delete=models.CASCADE)
     status = models.CharField(max_length=128)
-    location = models.CharField(max_length=1024)
+    location_id = models.IntegerField()
+    destination = models.CharField(max_length=1024)
 
 
 class ItemLog(models.Model):

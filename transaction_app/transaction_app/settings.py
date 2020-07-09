@@ -119,3 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ORIGINATION_BANK = 0
+ROUTABLE = 1
+DESTINATION_BANK = 2
+
+PROCESSING_STATE = {
+    0: "ORIGINATION_BANK",
+    1: "ROUTABLE",
+    2: "DESTINATION_BANK"
+}
