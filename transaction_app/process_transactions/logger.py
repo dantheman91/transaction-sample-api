@@ -21,7 +21,6 @@ class APILogger:
             'response': response_data,
             'http_code': http_code
         })
-        print(self.request_and_response_logs)
         try:
             requests_and_responses = json.dumps(self.request_and_response_logs)
         # If attempting to convert to json fails, just write to db and log error.
@@ -36,6 +35,4 @@ class APILogger:
             print(e)
 
     def add_to_logging(self, logging_object):
-        print(logging_object)
-        print(self.request_and_response_logs)
         self.request_and_response_logs.append(logging_object)

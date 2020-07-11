@@ -31,7 +31,7 @@ class CreateItem(ParentAPIView):
 
 class CreateTransaction(ParentAPIView):
     def post(self, request, format=None):
-        request_data = request.data
+        request_data = request.data.copy()
         self.logger.add_to_logging(request_data)
         request_data["status"] = "processing"
         request_data["location_id"] = settings.ORIGINATION_BANK

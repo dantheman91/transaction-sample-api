@@ -1,4 +1,5 @@
 import uuid
+from django.contrib import admin
 from django.db import models
 
 
@@ -15,6 +16,16 @@ class Transaction(models.Model):
     status = models.CharField(max_length=128)
     location_id = models.IntegerField()
     destination = models.CharField(max_length=1024)
+
+
+class TransactionInline(admin.TabularInline):
+    model = Transaction
+
+
+class ItemAdmin(admin.ModelAdmin):
+    inlines = [
+        TransactionInline,
+    ]
 
 
 class ItemLog(models.Model):
